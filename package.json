@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen:docs": "node --loader ts-node/esm api-docs/index.ts"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^3.1.0",
