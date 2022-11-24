@@ -8,7 +8,7 @@ import { uuidRouter } from './uuid.route';
 
 const apiRouter = express.Router();
 
-apiRouter.get('/', (req, res) => {
+apiRouter.get('/api', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.end(
@@ -16,13 +16,13 @@ apiRouter.get('/', (req, res) => {
   );
 });
 
-apiRouter.get('/item/:slug', (req, res) => {
+apiRouter.get('/api/item/:slug', (req, res) => {
   const { slug } = req.params;
   res.end(`Item: ${slug}`);
 });
 
 apiRouter.get(
-  '/validate/:key',
+  '/api/validate/:key',
   validateRequest({
     params: z.object({
       key: z.string().length(5),
@@ -33,8 +33,8 @@ apiRouter.get(
   },
 );
 
-apiRouter.use('/time', timeRouter);
-apiRouter.use('/uuid', uuidRouter);
-apiRouter.use('/docs', docsRouter);
+apiRouter.use(timeRouter);
+apiRouter.use(uuidRouter);
+apiRouter.use(docsRouter);
 
 export { apiRouter };
