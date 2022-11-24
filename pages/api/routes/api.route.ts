@@ -6,7 +6,7 @@ import { docsRouter } from './docs.route';
 import { timeRouter } from './time.route';
 import { uuidRouter } from './uuid.route';
 
-const apiRouter = express.Router();
+export const apiRouter = express.Router();
 
 apiRouter.get('/api', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
@@ -36,5 +36,3 @@ apiRouter.get(
 apiRouter.use(timeRouter);
 apiRouter.use(uuidRouter);
 apiRouter.use(docsRouter);
-
-export { apiRouter };
