@@ -21,15 +21,7 @@ registry.registerPath({
       description: 'Current Timestamp',
       content: {
         'application/json': {
-          schema: z
-            .object({
-              time: z.number(),
-            })
-            .openapi({
-              example: {
-                time: 1669307841493,
-              },
-            }),
+          schema: TimeController.openAPIComponents.now,
         },
       },
     },

@@ -3,6 +3,7 @@ import * as fs from 'fs';
 
 // import routes to ensure the registry instance
 // registers paths properly
+import '../pages/api/routes/api.route';
 import '../pages/api/routes/docs.route';
 import '../pages/api/routes/time.route';
 import '../pages/api/routes/uuid.route';
@@ -21,6 +22,10 @@ function main() {
     },
     servers: [{ url: 'http://localhost:3000' }],
     tags: [
+      {
+        name: 'API',
+        description: 'API routes',
+      },
       {
         name: 'Docs',
         description: 'Open API Docs',
